@@ -2,8 +2,9 @@ import mne
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import pickle
+import pickle,
 
+# dictionary for save classify
 sbj_EEGs_Fpz_Cz = {
     'W': [],
     'R': [],
@@ -13,7 +14,8 @@ sbj_EEGs_Fpz_Cz = {
     "S4": []
 }
 
-channel= "ST-Fpz_Cz"
+channel= "ST-Fpz_Cz"  # to save data ST Fpz-Cz 
+
 # read data
 edf_files = [file for file in os.listdir() if file.endswith(".edf")]
 
@@ -111,12 +113,4 @@ with open(file_path, 'wb') as file:
 
 print(f"Channels: **{channel_names}**")
 print(f"Channel_Selected:+++{channel_names[channel_index]}+++")
-# times = raw.times
-# num_samples= 3000
-#
-# # Plot the desired segment of EEG data
-# plt.plot(times[:num_samples], channel_data[0][:num_samples])
-# plt.xlabel('Time (s)')
-# plt.ylabel('EEG')
-# plt.title('EEG Data (Sleep stage 4, 30 seconds)')
-# plt.show()
+
